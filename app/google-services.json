@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "112854764452",
+    "project_id": "rideshareapp-340de",
+    "storage_bucket": "rideshareapp-340de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112854764452:android:4ec89adb9734f3bfb58f31",
+        "android_client_info": {
+          "package_name": "ie.wit.rideshareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112854764452-dd8r7hpso8fagpofbtne8rr87hdo7pru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAao-ZR7oCQwgTQaNx_kiDMv1b0cpRTk7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112854764452-dd8r7hpso8fagpofbtne8rr87hdo7pru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112854764452:android:0a354dede7c0380db58f31",
+        "android_client_info": {
+          "package_name": "org.wit.rideshareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112854764452-dd8r7hpso8fagpofbtne8rr87hdo7pru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAao-ZR7oCQwgTQaNx_kiDMv1b0cpRTk7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112854764452-dd8r7hpso8fagpofbtne8rr87hdo7pru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
