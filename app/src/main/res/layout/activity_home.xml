@@ -15,5 +15,14 @@
         android:text="Home Page"
         android:layout_height="wrap_content"
         />
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Sign Out"
+        android:layout_height="wrap_content"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

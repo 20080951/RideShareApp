@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Input Required", Toast.LENGTH_LONG).show()
         }
     }
+        tvLogin.setOnClickListener{
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun createUser(email:String, password:String) {
