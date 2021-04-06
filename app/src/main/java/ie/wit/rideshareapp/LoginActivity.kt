@@ -21,6 +21,12 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        forgotPassword.setOnClickListener {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+
+        }
+
         btnLogin.setOnClickListener {
 
             if (editTextEmail.text.trim().toString().isNotEmpty() || editTextPassword.text.trim().toString().isNotEmpty()
