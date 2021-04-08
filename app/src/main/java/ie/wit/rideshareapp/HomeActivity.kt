@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import ie.wit.rideshareapp.fragments.*
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -24,11 +26,22 @@ class HomeActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         replaceFragment(homeFragment)
 
-      //  btnSignOut.setOnClickListener {
-        //    auth.signOut()
-          //  val intent = Intent(this, LoginActivity::class.java)
-            //startActivity(intent)
-        //}
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.ic_home -> replaceFragment(homeFragment)
+                R.id.ic_account -> replaceFragment(accountFragment)
+                R.id.ic_myrides -> replaceFragment(myridesFragment)
+                R.id.ic_settings -> replaceFragment(settingsFragment)
+                R.id.ic_shareride -> replaceFragment(sharerideFragment)
+            }
+            true
+        }
+        btnSignOut.setOnClickListener {
+            auth.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment){

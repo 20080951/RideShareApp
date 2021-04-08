@@ -3,31 +3,31 @@
 
 
     <item
-        android:id="@+id/account"
+        android:id="@+id/ic_account"
         android:icon="@drawable/ic_account"
         android:title="Account"
         />
 
     <item
-        android:id="@+id/shareride"
+        android:id="@+id/ic_shareride"
         android:icon="@drawable/ic_shareride"
         android:title="ShareRide"
         />
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/ic_home"
         android:icon="@drawable/ic_home"
         android:title="Home"
         />
 
     <item
-        android:id="@+id/myrides"
+        android:id="@+id/ic_myrides"
         android:icon="@drawable/ic_myrides"
         android:title="MyRides"
         />
 
     <item
-        android:id="@+id/settings"
+        android:id="@+id/ic_settings"
         android:icon="@drawable/ic_settings"
         android:title="Settings"
         />
