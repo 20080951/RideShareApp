@@ -1,4 +1,4 @@
-package ie.wit.rideshareapp
+package ie.wit.rideshareapp.activities
 import android.content.Intent
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import ie.wit.rideshareapp.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
         tvLogin.setOnClickListener{
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Log.e("Task Message", "Successful...");
 
-                        val intent = Intent(this,HomeActivity::class.java);
+                        val intent = Intent(this, HomeActivity::class.java);
                         startActivity(intent);
                     } else {
                         Log.e("Task Message", "Unsuccessful..."+task.exception)
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         val user = auth.currentUser
 
         if(user != null){
-            val intent = Intent(this,HomeActivity::class.java);
+            val intent = Intent(this, HomeActivity::class.java);
             startActivity(intent);
         }
     }

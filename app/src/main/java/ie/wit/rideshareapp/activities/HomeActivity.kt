@@ -1,14 +1,15 @@
-package ie.wit.rideshareapp
+package ie.wit.rideshareapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import ie.wit.rideshareapp.R
 import ie.wit.rideshareapp.fragments.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_settings.*
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -18,12 +19,12 @@ class HomeActivity : AppCompatActivity() {
     private val settingsFragment = SettingsFragment()
     private val sharerideFragment = SharerideFragment()
 
-    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        auth = FirebaseAuth.getInstance()
+
         replaceFragment(homeFragment)
 
         bottom_navigation.setOnNavigationItemSelectedListener {
@@ -36,11 +37,6 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
-        btnSignOut.setOnClickListener {
-            auth.signOut()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
 
     }
 
@@ -51,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
             transaction.commit()
         }
     }
+
 
 }
 
