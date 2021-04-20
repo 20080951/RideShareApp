@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         databaseReference = database!!.reference.child("profile")
 
         btnRegister.setOnClickListener {
-            if (editEmail.text.trim().toString().isNotEmpty() || editPassword.text.trim().toString().isNotEmpty() || editUsername.text.toString().isNotEmpty() || editFullName.text.toString().isNotEmpty()) {
+            if (editEmail.text.trim().toString().isNotEmpty() || editPassword.text.trim().toString().isNotEmpty() || editUsername.text.toString().isNotEmpty() || editFirstName.text.toString().isNotEmpty() || editLastName.text.toString().isNotEmpty()) {
                 createUser(editEmail.text.trim().toString(), editPassword.text.trim().toString())
 
             Toast.makeText(this, "Input Provided", Toast.LENGTH_LONG).show()
@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity() {
                         val currentUser = auth.currentUser
                        val currentUserDB = databaseReference?.child((currentUser?.uid!!))
                         currentUserDB?.child("username")?.setValue(editUsername.text.toString())
-                        currentUserDB?.child("fullname")?.setValue(editFullName.text.toString())
+                        currentUserDB?.child("firstname")?.setValue(editFirstName.text.toString())
+                        currentUserDB?.child("lastname")?.setValue(editLastName.text.toString())
                         Log.e("Task Message", "Successful...");
 
                         val intent = Intent(this, HomeActivity::class.java);

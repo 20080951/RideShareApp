@@ -5,34 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.UpdateActivity">
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/updateUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="Enter First Name"
-        android:layout_margin="10dp"
+        android:hint="Enter Your New Username"
+        android:layout_margin="20dp"
         />
 
-
-
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/updatefullName"
+        android:id="@+id/updatefirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/updateUsername"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="Enter Full Name"
+        android:hint="Enter Your First Name"
+        android:layout_margin="20dp"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/updatelastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/updatefirstName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Enter Your Last Name"
         android:layout_margin="20dp"
         />
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/updatefullName"
+        app:layout_constraintTop_toBottomOf="@+id/updatelastName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/green"
         android:text="Save"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

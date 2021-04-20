@@ -6,6 +6,7 @@
         android:id="@+id/ic_account"
         android:icon="@drawable/ic_account"
         android:title="Account"
+
         />
 
     <item

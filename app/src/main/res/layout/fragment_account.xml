@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.AccountFragment">
 
 
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@mipmap/gradient_account"
+    android:layout_weight="0.8">
+
+</LinearLayout>
     <TextView
         android:id="@+id/usernameTitle"
         android:layout_width="match_parent"
@@ -15,12 +26,14 @@
         android:gravity="center_horizontal"
         android:text="Username"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
 
     <TextView
         android:id="@+id/username"
@@ -35,23 +48,22 @@
         app:layout_constraintTop_toBottomOf="@+id/usernameTitle" />
 
     <TextView
-        android:id="@+id/userFullNameTitle"
+        android:id="@+id/userFirstNameTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center_horizontal"
-        android:text="User Full Name"
+        android:text="First Name"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
-
     <TextView
-        android:id="@+id/fullname"
+        android:id="@+id/firstname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -60,7 +72,35 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userFullNameTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/userFirstNameTitle" />
+
+    <TextView
+        android:id="@+id/userLastNameTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:text="Last Name"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstname" />
+
+
+    <TextView
+        android:id="@+id/lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userLastNameTitle" />
 
 
     <TextView
@@ -71,12 +111,12 @@
         android:gravity="center_horizontal"
         android:text="User Email Address"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullname" />
+        app:layout_constraintTop_toBottomOf="@+id/lastname" />
 
 
     <TextView
@@ -99,6 +139,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Update"
+        android:backgroundTint="@color/orange"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>

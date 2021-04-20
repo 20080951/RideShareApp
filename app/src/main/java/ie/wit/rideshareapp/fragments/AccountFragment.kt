@@ -27,10 +27,10 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         database = FirebaseDatabase.getInstance()
         databaseReference = database!!.reference.child("profile")
 
-       // update.setOnClickListener {
-         //   val intent = Intent(view.context, UpdateActivity::class.java)
-           // startActivity(intent)
-        //}
+        update.setOnClickListener {
+           val intent = Intent(view.context, UpdateActivity::class.java)
+        startActivity(intent)
+        }
         readFireStoreData()
     }
 
@@ -45,7 +45,8 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         userreference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
              username.text = snapshot.child("username").value.toString()
-                fullname.text = snapshot.child("fullname").value.toString()
+                firstname.text = snapshot.child("firstname").value.toString()
+                lastname.text = snapshot.child("lastname").value.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {
