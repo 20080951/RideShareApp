@@ -50,7 +50,6 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
         })

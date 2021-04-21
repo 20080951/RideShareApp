@@ -18,13 +18,17 @@
     android:layout_weight="0.8">
 
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        >
     <TextView
         android:id="@+id/usernameTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:gravity="center_horizontal"
-        android:text="Username"
+        android:text="Username: "
         android:textAlignment="center"
         android:textColor="@color/green"
         android:textSize="16sp"
@@ -37,23 +41,28 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTitle" />
+        app:layout_constraintStart_toEndOf="@+id/usernameTitle"
+       />
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/userFirstNameTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:gravity="center_horizontal"
-        android:text="First Name"
+        android:text="First Name: "
         android:textAlignment="center"
         android:textColor="@color/green"
         android:textSize="16sp"
@@ -66,7 +75,6 @@
         android:id="@+id/firstname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -74,13 +82,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userFirstNameTitle" />
 
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/userLastNameTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:gravity="center_horizontal"
-        android:text="Last Name"
+        android:text="Last Name: "
         android:textAlignment="center"
         android:textColor="@color/green"
         android:textSize="16sp"
@@ -94,22 +109,26 @@
         android:id="@+id/lastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userLastNameTitle" />
+    </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/userEmailTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:gravity="center_horizontal"
-        android:text="User Email Address"
+        android:text="Email Address: "
         android:textAlignment="center"
         android:textColor="@color/green"
         android:textSize="16sp"
@@ -123,7 +142,6 @@
         android:id="@+id/userEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -131,15 +149,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmailTitle" />
 
+</LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+
+</LinearLayout>
+
     <Button
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/userEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Update"
         android:backgroundTint="@color/orange"
-        />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        android:gravity="center"
+        android:text="Update" />
+</androidx.appcompat.widget.LinearLayoutCompat>
