@@ -24,7 +24,7 @@
     <item
         android:id="@+id/ic_myrides"
         android:icon="@drawable/ic_myrides"
-        android:title="MyRides"
+        android:title="Rides"
         />
 
     <item

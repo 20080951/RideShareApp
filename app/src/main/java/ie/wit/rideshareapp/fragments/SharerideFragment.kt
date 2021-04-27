@@ -32,13 +32,13 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride)  {
 
 
         shareRide.setOnClickListener {
-            if ( pickupLocation.text.toString().isNotEmpty() || destination.text.toString().isNotEmpty()) {
+            if ( pickupLocation.text.toString().isNotEmpty() || destination.text.toString().isNotEmpty() || contact.text.toString().toInt()>10000) {
                         shareRide()
 
 
-                        Toast.makeText(activity, "Account Details Updated", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "Ride has been shared", Toast.LENGTH_LONG).show()
                     }else {
-                Toast.makeText(activity, "Provide new details", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Please provide all details", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -49,6 +49,7 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride)  {
         val currentUserDB = databaseReference?.child((currentUser?.uid!!))
         currentUserDB?.child("pickupLocation")?.setValue(pickupLocation.text.toString())
         currentUserDB?.child("destination")?.setValue(destination.text.toString())
+        currentUserDB?.child("contact")?.setValue(contact.text.toString().toInt())
         Log.e("Task Message", "Ride Created")
 
     }
