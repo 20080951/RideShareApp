@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.google.android.gms.common.util.ArrayUtils.contains
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                     if (it.isSuccessful) {
                         val currentUser = auth.currentUser
                        val currentUserDB = databaseReference?.child((currentUser?.uid!!))
+                        //insert data into the user database for the fields username, firstname, and lastname
                         currentUserDB?.child("username")?.setValue(editUsername.text.toString())
                         currentUserDB?.child("firstname")?.setValue(editFirstName.text.toString())
                         currentUserDB?.child("lastname")?.setValue(editLastName.text.toString())
@@ -56,7 +58,8 @@ class MainActivity : AppCompatActivity() {
                         val intent = Intent(this, HomeActivity::class.java);
                         startActivity(intent);
                     } else {
-                       Toast.makeText(this@MainActivity, "Failedd",Toast.LENGTH_SHORT).show()
+                        //Displays message notifying user that their registration was unsuccessful
+                       Toast.makeText(this@MainActivity, "Unable to Create Account",Toast.LENGTH_SHORT).show()
                     }
                 }
     }
@@ -70,4 +73,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent);
         }
     }
+
 }
