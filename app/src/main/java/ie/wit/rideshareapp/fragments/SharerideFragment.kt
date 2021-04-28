@@ -110,7 +110,7 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialo
         savedHour = hourOfDay
         savedMinute = minute
 
-        date.setText("$savedDay-$savedMonth-$savedYear\n Hour: $savedHour Minute: $savedMinute")
+        date.setText("$savedDay-$savedMonth-$savedYear\n $savedHour : $savedMinute")
 
     }
 

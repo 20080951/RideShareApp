@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import ie.wit.rideshareapp.R
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -42,18 +43,40 @@ class LoginActivity : AppCompatActivity() {
             fun signInUser(email: String, password: String) {
 
                 auth.signInWithEmailAndPassword(email, password)
+                        
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val intent = Intent(this, HomeActivity::class.java)
-                            startActivity(intent)
+                            // task will be succesful if user provides valid email and password
+                            val user = auth.currentUser
+                            login(user)
 
                         } else {
-                            Toast.makeText(this, "Error !!" + task.exception, Toast.LENGTH_LONG)
-                                .show()
+
+                            login(null)
+
                         }
 
                     }
 
             }
+
+private fun login(currentUser: FirebaseUser?){
+
+    if(currentUser != null){
+        if(currentUser.isEmailVerified) {
+
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }else
+        {
+            Toast.makeText(this, "Please Verify Email", Toast.LENGTH_LONG).show()
+        }
+    }else {
+        Toast.makeText(this, "Please Enter Correct Email/Password", Toast.LENGTH_LONG).show()
+    }
+
+}
 
 }

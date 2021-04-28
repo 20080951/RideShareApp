@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) {
 
                     if (it.isSuccessful) {
+
+                        sendEmailVerification()
+
                         val currentUser = auth.currentUser
                        val currentUserDB = databaseReference?.child((currentUser?.uid!!))
                         //insert data into the user database for the fields username, firstname, and lastname
@@ -55,13 +58,22 @@ class MainActivity : AppCompatActivity() {
                         currentUserDB?.child("lastname")?.setValue(editLastName.text.toString())
                         Log.e("Task Message", "Successful...");
 
-                        val intent = Intent(this, HomeActivity::class.java);
+                        Toast.makeText(this, "Account Created Successfully, Please Login", Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this, LoginActivity::class.java);
                         startActivity(intent);
                     } else {
                         //Displays message notifying user that their registration was unsuccessful
                        Toast.makeText(this@MainActivity, "Unable to Create Account",Toast.LENGTH_SHORT).show()
                     }
                 }
+    }
+
+    private fun sendEmailVerification(){
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.sendEmailVerification()?.addOnCompleteListener {
+            Toast.makeText(this, "Verification Email Sent Please check Inbox", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onStart() {
