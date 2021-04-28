@@ -63,22 +63,38 @@ android:background="@drawable/map_background_shareride"
     </com.google.android.material.textfield.TextInputEditText>
 
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/date"
+        android:layout_width="170dp"
+        android:layout_below="@id/contact"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        tools:text="@tools:sample/date/ddmmyy"
+        android:layout_marginEnd="30dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:inputType="datetime">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
     <Button
         android:id="@+id/btn_timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Time"
         android:layout_below="@id/contact"
-        android:layout_marginRight="76dp"
-        android:layout_marginLeft="30dp"/>
+       android:layout_toRightOf="@id/date"
+        android:layout_marginTop="10dp"
+        android:text="Select Time" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/shareRide"
-        android:layout_toRightOf="@+id/btn_timePicker"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_shareRide"
         android:text="Share Ride"
-        android:layout_below="@id/contact"
+        android:layout_below="@id/date"
         android:backgroundTint="@color/orange"
         />
 

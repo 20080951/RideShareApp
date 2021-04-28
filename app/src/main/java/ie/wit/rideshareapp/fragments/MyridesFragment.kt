@@ -24,9 +24,12 @@ class MyridesFragment : Fragment(R.layout.fragment_myrides) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        ridesRecyclerview = sharedRides
+
+        ridesRecyclerview = view.findViewById(R.id.sharedRides)
         ridesRecyclerview.layoutManager = LinearLayoutManager(context)
         ridesRecyclerview.setHasFixedSize(true)
+
+
 
         ridesArrayList = arrayListOf<Rides>()
         getRidesData()

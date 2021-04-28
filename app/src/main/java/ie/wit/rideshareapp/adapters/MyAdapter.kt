@@ -10,7 +10,7 @@ import ie.wit.rideshareapp.adapters.MyAdapter.MyViewHolder
 import ie.wit.rideshareapp.classes.Rides
 import kotlinx.android.synthetic.main.ride_item.view.*
 
-class MyAdapter(private val rideList : ArrayList<Rides>) : RecyclerView.Adapter<MyViewHolder>() {
+public class MyAdapter(private val rideList : ArrayList<Rides>) : RecyclerView.Adapter<MyViewHolder>() {
 
 
 
@@ -18,7 +18,7 @@ class MyAdapter(private val rideList : ArrayList<Rides>) : RecyclerView.Adapter<
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.ride_item,
-        parent, false)
+         null)
         return MyViewHolder(itemView)
     }
 
@@ -28,6 +28,7 @@ class MyAdapter(private val rideList : ArrayList<Rides>) : RecyclerView.Adapter<
 
         holder.pickupLoaction.text = currentitem.pickupLocation
         holder.destination.text = currentitem.destination
+        holder.date.text = currentitem.date
         holder.contact.text = currentitem.contact.toString()
     }
 
@@ -39,6 +40,7 @@ class MyAdapter(private val rideList : ArrayList<Rides>) : RecyclerView.Adapter<
 
         val pickupLoaction : TextView = itemView.findViewById(R.id.tvpickupLocation)
         val destination : TextView = itemView.findViewById(R.id.tvDesination)
+        val date : TextView = itemView.findViewById(R.id.tvDate)
         val contact : TextView = itemView.findViewById(R.id.tvContact)
     }
 }
