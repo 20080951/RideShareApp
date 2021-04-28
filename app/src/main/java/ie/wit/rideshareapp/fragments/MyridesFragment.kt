@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_myrides.*
 
 class MyridesFragment : Fragment(R.layout.fragment_myrides) {
 
+
+
     private lateinit var dbref : DatabaseReference
     private lateinit var ridesRecyclerview: RecyclerView
     private lateinit var ridesArrayList : ArrayList<Rides>
@@ -28,7 +30,6 @@ class MyridesFragment : Fragment(R.layout.fragment_myrides) {
         ridesRecyclerview = view.findViewById(R.id.sharedRides)
         ridesRecyclerview.layoutManager = LinearLayoutManager(context)
         ridesRecyclerview.setHasFixedSize(true)
-
 
 
         ridesArrayList = arrayListOf<Rides>()
@@ -56,7 +57,7 @@ class MyridesFragment : Fragment(R.layout.fragment_myrides) {
         }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
 
 
