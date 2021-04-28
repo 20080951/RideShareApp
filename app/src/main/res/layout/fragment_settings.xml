@@ -7,7 +7,24 @@
     android:background="@drawable/map_background_shareride"
     tools:context=".fragments.SettingsFragment">
 
-    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Thank You For Using RideShare"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        />
+
+
+
+
+
     <Button
         android:id="@+id/btnSignOut"
         android:layout_width="match_parent"
@@ -38,6 +55,7 @@
         android:background="@color/white"
         android:alpha="0.5"
         >
+
     </RelativeLayout>
 
 
