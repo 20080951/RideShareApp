@@ -9,6 +9,19 @@ android:background="@drawable/map_background_shareride"
     >
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="Where To Today?"
+        android:layout_above="@+id/pickupLocation"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textSize="40sp"/>
+
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/pickupLocation"
         android:layout_width="match_parent"
@@ -20,7 +33,7 @@ android:background="@drawable/map_background_shareride"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/white"
-        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         >
 
 
