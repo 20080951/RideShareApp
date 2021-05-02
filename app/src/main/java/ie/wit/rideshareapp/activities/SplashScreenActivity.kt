@@ -11,6 +11,8 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+        //here we set the opacity (alpha) from 0 to 1 to fade in the splash screen after which we display the mainactivity
+
         logo.alpha = 0f
         logo.animate().setDuration(1900).alpha(1f).withEndAction {
             val i = Intent(this, MainActivity::class.java)

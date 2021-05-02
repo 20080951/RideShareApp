@@ -36,6 +36,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
 
 
     lateinit var mapFragment : SupportMapFragment
+    // here we declare a variable for the google maps class in our sdk
     lateinit var googleMap: GoogleMap
 
     // user location
@@ -54,6 +55,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        // this assign the searchview to our searchview layout by the id
         searchView = idSearchView
 
         init()
@@ -71,26 +74,24 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
                 // checking if the entered location is null or not.
                 if (location != null || location == "")
                 {
-                    // on below line we are creating and initializing a geo coder.
+                    // here im, creating and initializing a geo coder.
                     val geocoder = Geocoder(context)
                     try
                     {
-                        // on below line we are getting location from the
-                        // location name and adding that location to address list.
+                        //here we are getting location from the location name and adding that location to address list.
                         addressList = geocoder.getFromLocationName(location, 1)
                     }
                     catch (e: IOException) {
                         e.printStackTrace()
                     }
-                    // on below line we are getting the location
-                    // from our list a first position.
+
                     val address = addressList?.get(0)
-                    // on below line we are creating a variable for our location
+                    //  creating a variable for our location
                     // where we will add our locations latitude and longitude.
                     val latLng = address?.let { LatLng(it.getLatitude(), address.getLongitude()) }
-                    // on below line we are adding marker to that position.
+                    // adding marker to that position.
                     googleMap.addMarker(latLng?.let { MarkerOptions().position(it).title(location) })
-                    // below line is to animate camera to that position.
+                    // here we animate the camera to that position.
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10F))
                 }
                 return false
@@ -107,6 +108,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
 
     }
 
+
+    // here we find the user's current location via a locationrequest and set priorities, interval and displacement
     private fun init() {
        locationRequest = LocationRequest.create()
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -135,6 +138,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
     override fun onMapReady(p0: GoogleMap?) {
         googleMap = p0!!
 
+        // here we ask for user permissions to aceesss location
         Dexter.withContext(requireContext())
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(object:PermissionListener{
@@ -160,9 +164,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
                         }
 
                     }
-
+                        // if the user denies permission a message that it is required to run the app is displayed
                     override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
-                        Snackbar.make(requireView(), p0!!.permissionName+ "needed for run app" ,
+                        Snackbar.make(requireView(), p0!!.permissionName+ "needed to run the app" ,
                        Snackbar.LENGTH_LONG).show()
                     }
 
@@ -173,7 +177,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
                 })
                 .check()
 
-        //Button and Layout
+        //Button and Layout here is the button and layout for the geolocate button
         val locationButton = (mapFragment.requireView()!!.findViewById<View>("1".toInt())!!.parent!! as View )
                 .findViewById<View>("2".toInt())
         val params = locationButton.layoutParams as RelativeLayout.LayoutParams
@@ -181,8 +185,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnMapReadyCallback {
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE)
         params.bottomMargin = 50
         try{
+            //here we also change the map style to our custom one
             val success = p0!!.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(),R.raw.alternative_maps_style))
             if(!success)
+                //here we also create a validation message but this tiome with snackbar instead of toast, they are similar but snackbar can be swiped of screen
                 Snackbar.make(requireView(),"Load map Style Failed",
                 Snackbar.LENGTH_LONG).show()
 

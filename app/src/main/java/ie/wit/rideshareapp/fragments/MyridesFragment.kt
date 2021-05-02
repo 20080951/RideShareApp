@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_myrides.*
 class MyridesFragment : Fragment(R.layout.fragment_myrides) {
 
 
-
+// declaring variables and assigning them to public classes from our implemented files
     private lateinit var dbref : DatabaseReference
     private lateinit var ridesRecyclerview: RecyclerView
     private lateinit var ridesArrayList : ArrayList<Rides>
@@ -31,7 +31,7 @@ class MyridesFragment : Fragment(R.layout.fragment_myrides) {
         ridesRecyclerview.layoutManager = LinearLayoutManager(context)
         ridesRecyclerview.setHasFixedSize(true)
 
-
+        // lists array of all content in rides collection
         ridesArrayList = arrayListOf<Rides>()
         getRidesData()
 
@@ -39,7 +39,7 @@ class MyridesFragment : Fragment(R.layout.fragment_myrides) {
     }
 
     private fun getRidesData(){
-
+        // gettibng data from rides collection
         dbref = FirebaseDatabase.getInstance().getReference("rides")
 
       
@@ -48,10 +48,11 @@ class MyridesFragment : Fragment(R.layout.fragment_myrides) {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (ridesSnapshot in snapshot.children){
-
+                        // sets rides data into rides array
                         val rides = ridesSnapshot.getValue(Rides::class.java)
                         ridesArrayList.add(rides!!)
                 }
+
                     ridesRecyclerview.adapter = MyAdapter(ridesArrayList)
             }
         }

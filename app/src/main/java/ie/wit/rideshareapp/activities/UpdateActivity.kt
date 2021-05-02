@@ -32,6 +32,9 @@ class UpdateActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         databaseReference = database!!.reference.child("profile")
 
+
+        // here we check if all fields are not empty and if so we call the updateuser() function which writes the new data into firebase by user id.
+        // we also have validation to display a message if the fields are empty or if the process was successful
         save.setOnClickListener {
             if ( updateUsername.text.toString().isNotEmpty() || updatefirstName.text.toString().isNotEmpty() || updatelastName.text.toString().isNotEmpty()) {
                 updateUser()
@@ -48,6 +51,7 @@ class UpdateActivity : AppCompatActivity() {
 
     fun updateUser() {
 
+                        // in this function we set the new data to firebase via userid
                         val currentUser = auth.currentUser
                         val currentUserDB = databaseReference?.child((currentUser?.uid!!))
                         currentUserDB?.child("username")?.setValue(updateUsername.text.toString())

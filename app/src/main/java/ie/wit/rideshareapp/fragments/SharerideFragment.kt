@@ -22,6 +22,8 @@ import java.util.*
 
 class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
+
+    // declaring variables and setting them to zero
     var day = 0
     var month = 0
     var year = 0
@@ -44,7 +46,7 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialo
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+// calling pickdate function
         pickDate()
 
         auth = FirebaseAuth.getInstance()
@@ -64,7 +66,9 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialo
         }
     }
 
+
     private fun getDateTimeCalendar() {
+        //Gets a calendar using the default time zone and locale
         val cal = Calendar.getInstance()
         day = cal.get(Calendar.DAY_OF_MONTH)
         month = cal.get(Calendar.MONTH)
@@ -77,18 +81,21 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialo
 
         btn_timePicker.setOnClickListener {
             getDateTimeCalendar()
-
+// here we select the date
             DatePickerDialog(requireContext(), this, year, month, day).show()
         }
     }
 
     fun shareRide(){
 
+
+        // function that writes data to our rides collection based on uid
         val currentUser = auth.currentUser
         val currentUserDB = databaseReference?.child((currentUser?.uid!!))
         currentUserDB?.child("pickupLocation")?.setValue(pickupLocation.text.toString())
         currentUserDB?.child("destination")?.setValue(destination.text.toString())
         currentUserDB?.child("date")?.setValue(date.editableText.toString())
+        // have to change from string to int as it is a number
         currentUserDB?.child("contact")?.setValue(contact.text.toString().toInt())
         Log.e("Task Message", "Ride Created")
 
@@ -98,7 +105,7 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialo
         savedDay = dayOfMonth
         savedMonth = month
         savedYear = year
-
+        // here we se the date and load the time picker
         getDateTimeCalendar()
 
         TimePickerDialog(context, this, hour, minute, true).show()
@@ -109,7 +116,7 @@ class SharerideFragment : Fragment(R.layout.fragment_shareride), DatePickerDialo
 
         savedHour = hourOfDay
         savedMinute = minute
-
+        // here we save the inputs we provided and select how rto display them
         date.setText("$savedDay-$savedMonth-$savedYear\n $savedHour : $savedMinute")
 
     }

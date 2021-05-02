@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeActivity : AppCompatActivity() {
 
+
+    // declaring fragment variables
     private val homeFragment = HomeFragment()
     private val accountFragment = AccountFragment()
     private val myridesFragment = MyridesFragment()
@@ -27,6 +29,9 @@ class HomeActivity : AppCompatActivity() {
 
         replaceFragment(homeFragment)
 
+
+        // adding functionality for bottom navigation by assigning layouts to icon id's
+        //stating that when icon is slecetd the fragment is replace with the new fragment assigned to that icon
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.ic_home -> replaceFragment(homeFragment)

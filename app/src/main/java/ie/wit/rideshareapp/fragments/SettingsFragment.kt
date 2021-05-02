@@ -24,7 +24,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
 
-
+        //signs user out and displays login activity
         btnSignOut.setOnClickListener {
             auth.signOut()
             val intent = Intent(view.context, LoginActivity::class.java)
@@ -33,10 +33,12 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         btnDeleteAccount.setOnClickListener{
             val mAlertDialog = AlertDialog.Builder(context)
+            //creating alert dialog asking user if they are sure or weant to cancel account deletion
             mAlertDialog.setTitle("Delete Account")
             mAlertDialog.setMessage("Are you sure you want to delete account?")
             mAlertDialog.setIcon(R.mipmap.ic_launcher)
 
+            // setting conditions for positive button and negative button
             mAlertDialog.setPositiveButton("Yes"){dialog, id ->
                 val user = auth.currentUser!!
 

@@ -27,6 +27,8 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         database = FirebaseDatabase.getInstance()
         databaseReference = database!!.reference.child("profile")
 
+
+        // this directs us to our update activity
         update.setOnClickListener {
            val intent = Intent(view.context, UpdateActivity::class.java)
         startActivity(intent)
@@ -40,8 +42,12 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         val user = auth.currentUser
         val userreference = databaseReference?.child(user?.uid!!)
 
+
+        // as email is already stored elsewhere we do not pull it from the profile collection
         userEmail.text = user?.email
 
+
+        // here we check if the data is changed within our relatime databse and then pull the data stored in the fields, username,firstname and lastname from the the profile collection
         userreference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
              username.text = snapshot.child("username").value.toString()
@@ -55,24 +61,6 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         })
 
 
-       // val db = FirebaseFirestore.getInstance()
-       // db.collection("profile")
-      //      .get()
-       //     .addOnCompleteListener {
 
-         //       val result: StringBuffer = StringBuffer()
-           //     val name: StringBuffer = StringBuffer()
-           //     if (it.isSuccessful) {
-            //        for (document in it.result!!) {
-             //           result.append(document.data.getValue("username")).append("\n\n")
-              //          name.append(document.data.getValue("fullName")).append("\n\n")
-               //     }
-
-                //    username.setText(result)
-                 //   userFullName.setText(name)
-
-              //  }
-
-           // }
     }
 }

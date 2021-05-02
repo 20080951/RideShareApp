@@ -9,9 +9,12 @@ import ie.wit.rideshareapp.R
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 class ForgotPasswordActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
+
+        //this function checks if the email field is populated and if so then sending a reset password email with firebase
         btnSubmit.setOnClickListener {
             val email: String = enterTextEmail.text.toString().trim { it <= ' ' }
             if(email.isEmpty()) {

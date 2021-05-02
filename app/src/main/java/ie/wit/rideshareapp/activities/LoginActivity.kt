@@ -17,20 +17,25 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
+        //directs the user to register page
         tvRegister.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
         }
 
+        //opens forgot password activity
         forgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
 
         }
 
+
         btnLogin.setOnClickListener {
 
+            //calls sign in function if fields are not empty
             if (editTextEmail.text.trim().toString().isNotEmpty() || editTextPassword.text.trim().toString().isNotEmpty()
             ) {
                 signInUser(editTextEmail.text.trim().toString(), editTextPassword.text.trim().toString())
@@ -40,13 +45,14 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
+
+            // function that logs user in by calling login function
             fun signInUser(email: String, password: String) {
 
                 auth.signInWithEmailAndPassword(email, password)
                         
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // task will be succesful if user provides valid email and password
                             val user = auth.currentUser
                             login(user)
 
@@ -62,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
 
 private fun login(currentUser: FirebaseUser?){
 
+    // here we check if the user has a verified email and correct email and password, allowign them to sign in if both conditions are true.
     if(currentUser != null){
         if(currentUser.isEmailVerified) {
 
